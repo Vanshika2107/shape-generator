@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .result{
+            width: 800px;
+            height: 800px;
+            background-color: beige;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 10px;
+            margin: 10px;
+        }
+       .rectangle{
+            width: 50px;
+            height: 100px;
+        }
+        .square{
+            width: 50px;
+            height: 50px;
+        }
+        .circle{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+<body>
+    <input type="number" id="quantity" placeholder="Enter quantity">
+    <input type="text" id="shapeName" placeholder="Enter shape name">
+    <input type="color" id="color" value="#800000">
+    <button id="btn">generate</button>
+    <div class="result"></div>
+    <script>
+        document.getElementById("btn").addEventListener("click",()=>{
+            document.querySelector(".result").innerHTML="";
+            const quantity = document.querySelector("#quantity").value;
+            const shapeName=document.querySelector("#shapeName").value;
+            const color=document.querySelector("#color").value;
+            console.log(quantity,shapeName,color);
+            for(let i=0;i<quantity;i++){
+                let shape=document.createElement("div");
+                shape.classList.add(shapeName);
+                shape.style.backgroundColor=color;
+                document.querySelector(".result").appendChild(shape);
+            }
+        })
+    </script>
+</body>
+</html>
